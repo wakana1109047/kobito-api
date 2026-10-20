@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>こびと観察メモ帳</title>
+
+  <style>
+    body {
+      background-image: url("https://kisspress.jp/img/articles/2200-2299/2239/img53d21ef8b7c00_xl.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+
+    .container {
+      background: rgba(255, 248, 230, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border: 3px solid rgba(247, 215, 181, 0.6);
+    }
+
+
+    h1, h2 {
+      color: #d28b6c;
+      text-shadow: 1px 1px 0 #fff;
+    }
+
+    input, textarea {
+      background: rgba(255, 255, 255);
+      border: 2px solid rgba(242, 201, 167);
+      border-radius: 12px;
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+
+    button {
+      background: #f7cfa2;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #6b4a2b;
+      margin-top: 8px;
+      width: 100%;
+      transition: 0.2s;
+      box-shadow: 0 3px 0 #e0b48f;
+    }
+
+    button:hover {
+      background: #f3c38f;
+      transform: translateY(-2px);
+    }
+
+    #kobito-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .kobito-item {
+      background: rgba(255, 250, 244, 0.6); /* ← 半透明にする */
+      border: 3px solid rgba(247, 215, 181, 0.7);
+      border-radius: 18px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+
+    .kobito-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .kobito-item img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border: 3px solid #f2c9a7;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🧚‍♂️ こびと観察メモ帳</h1>
+  <div id="error-message" style="color:red;"></div>
+  <h2>新しいこびとを記録する</h2>
+  <form id="create-form" >
+    <input type="text" id="name" placeholder="こびとの名前" required>
+    <textarea id="description" placeholder="特徴" required></textarea>
+    <input type="text" id="imageUrl" placeholder="画像URL（任意）">
+    <button type="button">こびとを記録する</button>
+  </form>
+
+  <hr>
+  <h2>こびと検索</h2>
+  <input type="text" id="searchName" placeholder="名前で検索">
+  <button type="button" onclick="searchKobito()">検索する</button>
+
+
+  <h2>こびと一覧</h2>
+  <button onclick="fetchKobitos()">こびと一覧を更新する</button>
+  <div id="kobito-list"></div>
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
