@@ -97,12 +97,13 @@
   <h1>🧚‍♂️ こびと観察メモ帳</h1>
   <div id="error-message" style="color:red;"></div>
   <h2>新しいこびとを記録する</h2>
-  <form id="create-form" >
-    <input type="text" id="name" placeholder="こびとの名前" required>
-    <textarea id="description" placeholder="特徴" required></textarea>
-    <input type="text" id="imageUrl" placeholder="画像URL（任意）">
-    <button type="button">こびとを記録する</button>
+  <form id="create-form">
+    <input type="text" id="name" name="name" placeholder="こびとの名前" required>
+    <textarea id="description" name="description" placeholder="特徴" required></textarea>
+    <input type="text" id="imageUrl" name="imageUrl" placeholder="画像URL（任意）">
+    <button type="submit" onclick="createKobito()">こびとを記録する</button>
   </form>
+
 
   <hr>
   <h2>こびと検索</h2>

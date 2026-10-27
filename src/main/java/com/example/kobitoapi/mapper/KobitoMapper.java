@@ -11,7 +11,7 @@ public interface KobitoMapper {
     @Select("SELECT id,name,description,image_url,created_at FROM kobito ORDER BY created_at DESC")
     List<Kobito> findAll();
 
-    @Insert("INSERT INTO kobito (name,description,image_url) VALUES (#{name},#{description},#{imageUrl})")
+    @Insert("INSERT INTO kobito (name,description,image_url,created_at) VALUES (#{name},#{description},#{imageUrl},#{createdAt})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     int insert(Kobito kobito);
 

@@ -7,6 +7,7 @@ import com.example.kobitoapi.repository.KobitoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -29,6 +30,8 @@ public class KobitoService {
         if (kobito.getDescription() == null || kobito.getDescription().isEmpty()) {
             throw new KobitoArgumentNotValidException("Kobito's description is empty");
         }
+
+        kobito.setCreatedAt(LocalDateTime.now());
         kobitoRepository.insertKobito(kobito);
         return kobito;
     }
